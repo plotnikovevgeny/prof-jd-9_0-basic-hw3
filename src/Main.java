@@ -70,5 +70,35 @@ public class Main {
             }
         }else System.out.println("В году только 12 месяцев");
 
+        // задание 6
+        int age = 18;
+        long salary = 100_000L;
+        double kef = 0;
+        int limit;
+
+        if (age >= 23)limit = 3;
+        else limit = 2;
+
+        if (salary >= 50_000)kef = 1.2;
+        if (salary >= 80_000) kef = 1.5;
+
+        long credit = (long) (salary * limit * kef);
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + credit +" рублей");
+
+        //задание 7
+        long wantedSum = 500_000L;
+        double bet = 10;
+        int loanTermInMonths = 12;
+        double betI = bet / 100 / 12;
+        long maximumMonthlyPayment = salary / 2;
+        long standardMonthlyPayment = (long) (wantedSum * (betI +(betI / (Math.pow(1+betI,loanTermInMonths) -1))));
+
+        if (age < 23) bet = bet + 1;
+        else if (age < 30) bet = bet + 0.5;
+
+        if (salary > 80_000) bet = bet - 0.7;
+
+        if (maximumMonthlyPayment > standardMonthlyPayment) System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maximumMonthlyPayment + " рублей. Платеж по кредиту " + standardMonthlyPayment + " рублей. Одобрено");
+        else System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maximumMonthlyPayment + " рублей. Платеж по кредиту " + standardMonthlyPayment + " рублей. Отказано");
     }
 }
